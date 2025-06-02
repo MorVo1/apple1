@@ -6,6 +6,7 @@
 
 #include "instructions/load.h"
 #include "instructions/trans.h"
+#include "instructions/stack.h"
 
 #define INSTRUCTION_COUNT
 

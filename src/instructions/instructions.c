@@ -38,7 +38,11 @@ struct instruction instructions[INSTRUCTION_COUNT] = {
     [0xBA] = {tsx, OPERAND_IMPLIED},
     [0x8A] = {txa, OPERAND_IMPLIED},
     [0x9A] = {txs, OPERAND_IMPLIED},
-    [0x98] = {tya, OPERAND_IMPLIED}
+    [0x98] = {tya, OPERAND_IMPLIED},
+    [0x48] = {pha, OPERAND_IMPLIED},
+    [0x08] = {php, OPERAND_IMPLIED},
+    [0x68] = {pla, OPERAND_IMPLIED},
+    [0x28] = {plp, OPERAND_IMPLIED}
 };
 
 void set_z_if_zero(struct cpu *cpu, uint8_t value) {
