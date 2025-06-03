@@ -125,7 +125,13 @@ struct instruction instructions[INSTRUCTION_COUNT] = {
     [0xEE] = {inc, OPERAND_ABSOLUTE},
     [0xFE] = {inc, OPERAND_ABSOLUTE_X},
     [0xE8] = {inx, OPERAND_IMPLIED},
-    [0xC8] = {iny, OPERAND_IMPLIED}
+    [0xC8] = {iny, OPERAND_IMPLIED},
+    [0x00] = {brk, OPERAND_IMPLIED},
+    [0x4C] = {jmp, OPERAND_ABSOLUTE},
+    [0x6C] = {jmp, OPERAND_INDIRECT},
+    [0x20] = {jsr, OPERAND_ABSOLUTE},
+    [0x40] = {rti, OPERAND_IMPLIED},
+    [0x60] = {rts, OPERAND_IMPLIED}
 };
 
 void set_z_if_zero(struct cpu *cpu, uint8_t value) {
