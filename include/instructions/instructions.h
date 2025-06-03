@@ -12,6 +12,9 @@
 #include "instructions/arith.h"
 #include "instructions/inc.h"
 #include "instructions/ctrl.h"
+#include "instructions/bra.h"
+#include "instructions/flags.h"
+#include "instructions/nop.h"
 
 #define INSTRUCTION_COUNT 0x100
 

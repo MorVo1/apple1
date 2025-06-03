@@ -131,7 +131,23 @@ struct instruction instructions[INSTRUCTION_COUNT] = {
     [0x6C] = {jmp, OPERAND_INDIRECT},
     [0x20] = {jsr, OPERAND_ABSOLUTE},
     [0x40] = {rti, OPERAND_IMPLIED},
-    [0x60] = {rts, OPERAND_IMPLIED}
+    [0x60] = {rts, OPERAND_IMPLIED},
+    [0x90] = {bcc, OPERAND_RELATIVE},
+    [0xB0] = {bcs, OPERAND_RELATIVE},
+    [0xF0] = {beq, OPERAND_RELATIVE},
+    [0x30] = {bmi, OPERAND_RELATIVE},
+    [0xD0] = {bne, OPERAND_RELATIVE},
+    [0x10] = {bpl, OPERAND_RELATIVE},
+    [0x50] = {bvc, OPERAND_RELATIVE},
+    [0x70] = {bvs, OPERAND_RELATIVE},
+    [0x18] = {clc, OPERAND_IMPLIED},
+    [0xD8] = {cld, OPERAND_IMPLIED},
+    [0x58] = {cli, OPERAND_IMPLIED},
+    [0xB8] = {clv, OPERAND_IMPLIED},
+    [0x38] = {sec, OPERAND_IMPLIED},
+    [0xF8] = {sed, OPERAND_IMPLIED},
+    [0x78] = {sei, OPERAND_IMPLIED},
+    [0xEA] = {nop, OPERAND_IMPLIED}
 };
 
 void set_z_if_zero(struct cpu *cpu, uint8_t value) {
