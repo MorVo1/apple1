@@ -18,3 +18,6 @@ $ make -j$(nproc)
 ```bash
 $ ./apple1
 ```
+### Resources I recommend
+- [pagetable.com](https://www.pagetable.com/c64ref/6502/?tab=2)
+- [masswerk.at](https://www.masswerk.at/6502/6502_instruction_set.html)
