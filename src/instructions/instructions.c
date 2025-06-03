@@ -113,7 +113,19 @@ struct instruction instructions[INSTRUCTION_COUNT] = {
     [0xFD] = {sbc, OPERAND_ABSOLUTE_X},
     [0xF9] = {sbc, OPERAND_ABSOLUTE_Y},
     [0xE1] = {sbc, OPERAND_PRE_ZEROPAGE_X},
-    [0xF1] = {sbc, OPERAND_POST_ZEROPAGE_Y}
+    [0xF1] = {sbc, OPERAND_POST_ZEROPAGE_Y},
+    [0xC6] = {dec, OPERAND_ZEROPAGE},
+    [0xD6] = {dec, OPERAND_ZEROPAGE_X},
+    [0xCE] = {dec, OPERAND_ABSOLUTE},
+    [0xDE] = {dec, OPERAND_ABSOLUTE_X},
+    [0xCA] = {dex, OPERAND_IMPLIED},
+    [0x88] = {dey, OPERAND_IMPLIED},
+    [0xE6] = {inc, OPERAND_ZEROPAGE},
+    [0xF6] = {inc, OPERAND_ZEROPAGE_X},
+    [0xEE] = {inc, OPERAND_ABSOLUTE},
+    [0xFE] = {inc, OPERAND_ABSOLUTE_X},
+    [0xE8] = {inx, OPERAND_IMPLIED},
+    [0xC8] = {iny, OPERAND_IMPLIED}
 };
 
 void set_z_if_zero(struct cpu *cpu, uint8_t value) {
