@@ -13,3 +13,8 @@ $ cd build
 $ cmake ..
 $ make -j$(nproc)
 ```
+
+## Run
+```bash
+$ ./apple1
+```
