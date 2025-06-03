@@ -9,6 +9,7 @@
 #include "instructions/stack.h"
 #include "instructions/shift.h"
 #include "instructions/logic.h"
+#include "instructions/arith.h"
 
 #define INSTRUCTION_COUNT 0x100
 
