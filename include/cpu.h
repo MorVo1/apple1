@@ -22,4 +22,4 @@ struct cpu {
 };
 
 void reset(struct cpu *, uint8_t *);
-void run(struct cpu *, uint8_t *);
+int run(struct cpu *, uint8_t *);

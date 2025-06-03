@@ -8,7 +8,7 @@
 #include "instructions/trans.h"
 #include "instructions/stack.h"
 
-#define INSTRUCTION_COUNT
+#define INSTRUCTION_COUNT 0x100
 
 enum address_mode {
     OPERAND_ACCUMULATOR,
