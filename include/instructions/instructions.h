@@ -7,6 +7,8 @@
 #include "instructions/load.h"
 #include "instructions/trans.h"
 #include "instructions/stack.h"
+#include "instructions/shift.h"
+#include "instructions/logic.h"
 
 #define INSTRUCTION_COUNT 0x100
 
