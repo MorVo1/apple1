@@ -183,12 +183,12 @@ void set_v_on_overflow(struct cpu *cpu, uint8_t a, uint8_t b) {
         cpu->sr &= ~SR_V;
 }
 
-void push(struct cpu *cpu, uint8_t value, uint8_t *ram) {
-    ram[0x100 + cpu->sp] = value;
+void push(struct cpu *cpu, uint8_t value, uint8_t *memory) {
+    memory[0x100 + cpu->sp] = value;
     cpu->sp--;
 }
 
-void pull(struct cpu *cpu, uint8_t *dest, uint8_t *ram) {
+void pull(struct cpu *cpu, uint8_t *dest, uint8_t *memory) {
     cpu->sp++;
-    *dest = ram[0x100 + cpu->sp];
+    *dest = memory[0x100 + cpu->sp];
 }
