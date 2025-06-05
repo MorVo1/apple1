@@ -48,3 +48,9 @@ void set_n_if_negative(struct cpu *, uint8_t);
 void set_v_on_overflow(struct cpu *, uint8_t, uint8_t);
 void push(struct cpu *, uint8_t, uint8_t *);
 void pull(struct cpu *, uint8_t *, uint8_t *);
+
+[[maybe_unused]] static int8_t to_signed(uint8_t value) {
+    if (value > INT8_MAX)
+        return value - 256;
+    return value;
+}
