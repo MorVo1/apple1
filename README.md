@@ -21,3 +21,4 @@ $ ./apple1
 ### Resources I recommend
 - [pagetable.com](https://www.pagetable.com/c64ref/6502/?tab=2)
 - [masswerk.at](https://www.masswerk.at/6502/6502_instruction_set.html)
+- [The Apple 1 manual](https://mirrors.apple2.org.za/ftp.apple.asimov.net/documentation/apple1/apple1manual_alt.pdf)
