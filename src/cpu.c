@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <curses.h>
 #include <stdlib.h>
 
 #include "cpu.h"
@@ -75,5 +75,6 @@ int run(struct cpu *cpu, uint8_t *memory) {
                 instruction.implementation(cpu, &memory[operand], memory);
         }
         cpu->pc++;
+        refresh();
     }
 }
