@@ -18,5 +18,5 @@ void init_terminal() {
     initscr();
     nodelay(stdscr, true);
     noecho();
-    scrollok(stdscr, TRUE);
+    scrollok(stdscr, true);
 }
