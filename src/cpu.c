@@ -15,7 +15,7 @@ int run(struct cpu *cpu, uint8_t *memory) {
     for (;;) {
         instruction = instructions[memory[cpu->pc]];
         if (!instruction.implementation) {
-            printf("Unimplemented instruction: %02x\n", memory[cpu->pc]);
+            printf("Unimplemented instruction: %02x at %04x\n", memory[cpu->pc], cpu->pc);
             return EXIT_FAILURE;
         }
 

@@ -11,7 +11,7 @@ void handle_keyboard(uint8_t *operand, uint8_t *memory) {
     if (operand - memory == KBDCR) {
         value = getch();
         memory[KBDCR] = (value == ERR) ? 0 : SIGN_BIT;
-        memory[KBD] = (value == 10) ? 0x8D : value;
+        memory[KBD] = (value == 10) ? 0x8D : value | SIGN_BIT;
     }
 }
 

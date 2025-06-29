@@ -19,7 +19,7 @@
 #define INSTRUCTION_COUNT 0x100
 
 enum address_mode {
-    OPERAND_ACCUMULATOR,
+	OPERAND_ACCUMULATOR,
 	OPERAND_ABSOLUTE,
 	OPERAND_ABSOLUTE_X,
 	OPERAND_ABSOLUTE_Y,
@@ -50,7 +50,7 @@ void push(struct cpu *, uint8_t, uint8_t *);
 void pull(struct cpu *, uint8_t *, uint8_t *);
 
 [[maybe_unused]] static int8_t to_signed(uint8_t value) {
-    if (value > INT8_MAX)
-        return value - 256;
-    return value;
+	if (value > INT8_MAX)
+		return value - 256;
+	return value;
 }
