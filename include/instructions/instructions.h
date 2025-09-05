@@ -35,8 +35,8 @@ enum address_mode {
 };
 
 struct instruction {
-    void (*implementation)(struct cpu *, uint8_t *, uint8_t *);
-    enum address_mode address_mode;
+	void (*implementation)(struct cpu *, uint8_t *, uint8_t *);
+	enum address_mode address_mode;
 };
 
 extern struct instruction instructions[INSTRUCTION_COUNT];

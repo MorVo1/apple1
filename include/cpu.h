@@ -13,12 +13,12 @@
 #define SIGN_BIT (1 << 7)
 
 struct cpu {
-    uint16_t pc;
-    uint8_t ac;
-    uint8_t x;
-    uint8_t y;
-    uint8_t sr;
-    uint8_t sp;
+	uint16_t pc;
+	uint8_t ac;
+	uint8_t x;
+	uint8_t y;
+	uint8_t sr;
+	uint8_t sp;
 };
 
 void reset(struct cpu *, uint8_t *);
