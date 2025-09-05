@@ -8,7 +8,7 @@ int main() {
 	init_terminal();
 	struct cpu cpu;
 	uint8_t memory[0x10000] = {
-		#embed "memory.bin"
+		#embed "./memory.bin"
 	};
 	reset(&cpu, memory);
 	return run(&cpu, memory);
