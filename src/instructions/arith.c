@@ -8,7 +8,7 @@ void adc(struct cpu *cpu, uint8_t *operand, uint8_t *) {
 	uint8_t achigh, aclow, ophigh, oplow, dechigh, declow;
 
 	if (!(cpu->sr & SR_D)) {
-		if (cpu->ac + *operand > 255)
+		if (cpu->ac + *operand + carryin > 255)
 			cpu->sr |= SR_C;
 		else
 			cpu->sr &= ~SR_C;
