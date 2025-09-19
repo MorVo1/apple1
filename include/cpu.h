@@ -1,6 +1,8 @@
 #pragma once
 
 #include <stdint.h>
+#include <stdbool.h>
+#include <stdio.h>
 
 #define SR_C 1
 #define SR_Z (1 << 1)
@@ -21,5 +23,8 @@ struct cpu {
 	uint8_t sp;
 };
 
+struct instruction;
+
 void reset(struct cpu *, uint8_t *);
-int run(struct cpu *, uint8_t *);
+int run(struct cpu *, uint8_t *, bool);
+void log_if_tests(bool, struct instruction *, struct cpu *, uint8_t *, FILE *);
