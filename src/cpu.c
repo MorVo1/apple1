@@ -99,13 +99,13 @@ void log_if_tests(bool tests, struct instruction *instruction, struct cpu *cpu, 
 	switch (instruction->address_mode) {
 		case OPERAND_ACCUMULATOR:
 		case OPERAND_IMPLIED:
-			fprintf(logfile, "%02x\n", memory[cpu->pc]);
+			fprintf(logfile, "%02x\n\n", memory[cpu->pc]);
 			break;
 		case OPERAND_ABSOLUTE:
 		case OPERAND_ABSOLUTE_X:
 		case OPERAND_ABSOLUTE_Y:
 		case OPERAND_INDIRECT:
-			fprintf(logfile, "%02x %04x\n", memory[cpu->pc], memory[cpu->pc + 1] + (memory[cpu->pc + 2] << 8));
+			fprintf(logfile, "%02x %04x\n\n", memory[cpu->pc], memory[cpu->pc + 1] + (memory[cpu->pc + 2] << 8));
 			break;	
 		case OPERAND_IMMEDIATE:
 		case OPERAND_ZEROPAGE:
@@ -114,7 +114,7 @@ void log_if_tests(bool tests, struct instruction *instruction, struct cpu *cpu, 
 		case OPERAND_PRE_ZEROPAGE_X:
 		case OPERAND_POST_ZEROPAGE_Y:
 		case OPERAND_RELATIVE:
-			fprintf(logfile, "%02x %02x\n", memory[cpu->pc], memory[cpu->pc + 1]);
+			fprintf(logfile, "%02x %02x\n\n", memory[cpu->pc], memory[cpu->pc + 1]);
 	}
 
 }
