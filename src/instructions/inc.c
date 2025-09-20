@@ -16,6 +16,7 @@ void dex(struct cpu *cpu, uint8_t *, uint8_t *) {
 void dey(struct cpu *cpu, uint8_t *, uint8_t *) {
 	cpu->y--;
 	set_n_if_negative(cpu, cpu->y);
+	set_z_if_zero(cpu, cpu->y);
 }
 
 void inc(struct cpu *cpu, uint8_t *operand, uint8_t *) {
