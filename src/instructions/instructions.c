@@ -189,11 +189,11 @@ void set_v_on_overflow(struct cpu *cpu, uint8_t a, uint8_t b) {
 }
 
 void push(struct cpu *cpu, uint8_t value, uint8_t *memory) {
-	memory[0x100 + cpu->sp] = value;
+	memory[0x100 | cpu->sp] = value;
 	cpu->sp--;
 }
 
 void pull(struct cpu *cpu, uint8_t *dest, uint8_t *memory) {
 	cpu->sp++;
-	*dest = memory[0x100 + cpu->sp];
+	*dest = memory[0x100 | cpu->sp];
 }

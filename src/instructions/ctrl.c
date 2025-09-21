@@ -33,12 +33,12 @@ void rti(struct cpu *cpu, uint8_t *, uint8_t *memory) {
 	uint8_t high, low;
 	pull(cpu, &low, memory);
 	pull(cpu, &high, memory);
-	cpu->pc = high * 0x100 + low;
+	cpu->pc = high << 8 | low;
 }
 
 void rts(struct cpu *cpu, uint8_t *, uint8_t *memory) {
 	uint8_t high, low;
 	pull(cpu, &low, memory);
 	pull(cpu, &high, memory);
-	cpu->pc = high * 0x100 + low;
+	cpu->pc = high << 8 | low;
 }

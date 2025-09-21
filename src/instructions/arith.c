@@ -35,7 +35,7 @@ void adc(struct cpu *cpu, uint8_t *operand, uint8_t *) {
 		else
 			cpu->sr &= ~SR_C;
 
-		cpu->ac = dechigh * 0x10 + declow;
+		cpu->ac = dechigh << 4 | declow;
 	}
 
 	set_n_if_negative(cpu, cpu->ac);
@@ -107,7 +107,7 @@ void sbc(struct cpu *cpu, uint8_t *operand, uint8_t *) {
 		else
 			cpu->sr &= ~SR_C;
 
-		cpu->ac = dechigh * 0x10 + declow;
+		cpu->ac = dechigh << 4 | declow;
 		set_n_if_negative(cpu, cpu->ac);
 		set_z_if_zero(cpu, cpu->ac);
 		set_v_on_overflow(cpu, acold, not_operand);
