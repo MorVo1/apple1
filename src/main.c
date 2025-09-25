@@ -7,15 +7,16 @@
 void init_terminal();
 
 int main(int argc, char **argv) {
-	bool tests = false;
-	if (argc == 2 && strcmp(argv[1], "-t") == 0)
-		tests = true;
+	bool logs = false;
+	if (argc == 2 && strcmp(argv[1], "-l") == 0)
+		logs = true;
 
 	init_terminal();
 	struct cpu cpu;
 	uint8_t memory[0x10000];
 
-	if (!tests) {
+	// If not in test mode
+	if (!(argc == 2 && strcmp(argv[1], "-t") == 0)) {
 		uint8_t tmp_memory[0x10000] = {
 			#embed "./memory.bin"
 		};
@@ -28,9 +29,10 @@ int main(int argc, char **argv) {
 		};
 		memcpy(memory, tmp_memory, sizeof memory);
 		cpu.pc = 0x400;
+		logs = true;
 	}	
 
-	return run(&cpu, memory, tests);
+	return run(&cpu, memory, logs);
 }
 
 void init_terminal() {

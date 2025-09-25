@@ -17,13 +17,22 @@ $ make -j$(nproc)
 ```bash
 $ ./apple1
 ```
-If you want to run [Klaus Dormann's 6502 functional tests](https://github.com/Klaus2m5/6502_65C02_functional_tests), run this instead:
+### CPU test mode
+If you want to run [Klaus Dormann's 6502 functional tests](https://github.com/Klaus2m5/6502_65C02_functional_tests), run this:
 ```bash
 $ ./apple1 -t
 ```
-If you are in test mode, the log will be saved to `log.txt` file.
- 
-To run wozbasic, type this into the ROM monitor:
+### Log mode
+If you want to run the emulator in log mode, run this instead:
+```bash
+$ ./apple1 -l
+```
+If you are in test or log mode, the log will be saved to `log.txt` file.
+
+---
+
+## Apple BASIC 
+To run Apple BASIC, type this into the ROM monitor:
 ```
 E000R
 ```
