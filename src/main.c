@@ -18,14 +18,14 @@ int main(int argc, char **argv) {
 	// If not in test mode
 	if (!(argc == 2 && strcmp(argv[1], "-t") == 0)) {
 		uint8_t tmp_memory[0x10000] = {
-			#embed "./memory.bin"
+			#embed "memory.bin"
 		};
 		memcpy(memory, tmp_memory, sizeof memory);
 		reset(&cpu, memory);
 	}
 	else {
 		uint8_t tmp_memory[0x10000] = {
-			#embed "./6502_functional_test.bin"
+			#embed "6502_functional_test.bin"
 		};
 		memcpy(memory, tmp_memory, sizeof memory);
 		cpu.pc = 0x400;
