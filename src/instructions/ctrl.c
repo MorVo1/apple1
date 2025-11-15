@@ -34,6 +34,8 @@ void rti(struct cpu *cpu, uint8_t *, uint8_t *memory) {
 	pull(cpu, &low, memory);
 	pull(cpu, &high, memory);
 	cpu->pc = high << 8 | low;
+
+	// I am subtracting 1 from it because it gets added later on in my main loop.
 	cpu->pc -= 1;
 }
 
