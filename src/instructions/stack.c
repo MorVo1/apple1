@@ -16,9 +16,6 @@ void pla(struct cpu *cpu, uint8_t *, uint8_t *memory) {
 }
 
 void plp(struct cpu *cpu, uint8_t *, uint8_t *memory) {
-	uint8_t pulled;
-	pull(cpu, &pulled, memory);
-	pulled &= ~SR_PLP_IGNORED;
-	cpu->sr &= SR_PLP_IGNORED;
-	cpu->sr |= pulled;
+	pull(cpu, &cpu->sr, memory);
+	cpu->sr &= ~SR_PLP_IGNORED;
 }

@@ -28,11 +28,13 @@ void jsr(struct cpu *cpu, uint8_t *operand, uint8_t *memory) {
 
 void rti(struct cpu *cpu, uint8_t *, uint8_t *memory) {
 	pull(cpu, &cpu->sr, memory);
+	cpu->sr &= ~SR_PLP_IGNORED;
 
 	uint8_t high, low;
 	pull(cpu, &low, memory);
 	pull(cpu, &high, memory);
 	cpu->pc = high << 8 | low;
+	cpu->pc -= 1;
 }
 
 void rts(struct cpu *cpu, uint8_t *, uint8_t *memory) {
