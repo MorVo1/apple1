@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.28)
 project(apple1)
 file(GLOB_RECURSE SOURCE_FILES src/*.c src/instructions/*.c)
-add_compile_options(-fsanitize=undefined,address -Wall -Werror -pedantic)
+add_compile_options(-fsanitize=undefined,address -Wall -Wextra -pedantic)
 add_link_options(-fsanitize=undefined,address)
 find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR} include/)
