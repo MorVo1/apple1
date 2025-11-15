@@ -7,5 +7,4 @@ find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR} include/)
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} ${CURSES_LIBRARIES})
-set_property(TARGET ${PROJECT_NAME} PROPERTY C_STANDARD 23)
- 
+set_property(TARGET ${PROJECT_NAME} PROPERTY C_STANDARD 23) 
