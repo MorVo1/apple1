@@ -2,13 +2,12 @@
 #include "instructions/instructions.h"
 
 void brk(struct cpu *cpu, uint8_t *, uint8_t *memory) {
-	push(cpu, cpu->pc >> 8, memory);
-	push(cpu, (cpu->pc & 0xFF) + 1, memory);
+	uint16_t ret = cpu->pc + 2;
+	push(cpu, ret >> 8, memory);
+	push(cpu, ret & 0xFF, memory);
 
-	cpu->sr |= SR_B;
+	push(cpu, cpu->sr | SR_PHP_SET, memory);
 	cpu->sr |= SR_I;
-
-	push(cpu, cpu->sp, memory);
 
 	// I am subtracting 1 from it because it gets added later on in my main loop.
 	cpu->pc = memory[0xFFFE] + memory[0xFFFF] * 0x100 - 1;
