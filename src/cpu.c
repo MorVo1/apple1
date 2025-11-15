@@ -59,10 +59,12 @@ int run(struct cpu *cpu, uint8_t *memory, bool tests) {
 				break;
 			case OPERAND_ZEROPAGE_X:
 				operand = memory[++cpu->pc] + cpu->x;
+				operand &= 0xFF;
 				instruction.implementation(cpu, &memory[operand], memory);
 				break;
 			case OPERAND_ZEROPAGE_Y:
 				operand = memory[++cpu->pc] + cpu->y;
+				operand &= 0xFF;
 				instruction.implementation(cpu, &memory[operand], memory);
 				break;
 			case OPERAND_PRE_ZEROPAGE_X:
