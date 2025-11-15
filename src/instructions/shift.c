@@ -33,7 +33,7 @@ void rol(struct cpu *cpu, uint8_t *operand, uint8_t *) {
 		cpu->sr &= ~SR_C;
 
 	*operand = *operand << 1;
-	*operand |= carryin;
+	*operand |= carryin ? 0b0000'0001 : 0;
 
 	set_n_if_negative(cpu, *operand);
 	set_z_if_zero(cpu, *operand);
@@ -47,7 +47,7 @@ void ror(struct cpu *cpu, uint8_t *operand, uint8_t *) {
 		cpu->sr &= ~SR_C;
 
 	*operand = *operand >> 1;
-	*operand |= carryin;
+	*operand |= carryin ? 0b1000'0000 : 0;
 
 	set_n_if_negative(cpu, *operand);
 	set_z_if_zero(cpu, *operand);

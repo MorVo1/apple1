@@ -69,6 +69,7 @@ int run(struct cpu *cpu, uint8_t *memory, bool tests) {
 				break;
 			case OPERAND_PRE_ZEROPAGE_X:
 				operand = memory[++cpu->pc] + cpu->x;
+				operand &= 0xFF;
 				operand = memory[operand + 1] << 8 | memory[operand];
 				instruction.implementation(cpu, &memory[operand], memory);
 				break;
@@ -77,6 +78,7 @@ int run(struct cpu *cpu, uint8_t *memory, bool tests) {
 				operand = memory[operand + 1] << 8 | memory[operand];
 				operand += cpu->y;
 				instruction.implementation(cpu, &memory[operand], memory);
+				break;
 			case OPERAND_INDIRECT:
 				operand = memory[++cpu->pc];
 				operand |= memory[++cpu->pc] << 8;
