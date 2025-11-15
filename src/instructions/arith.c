@@ -1,7 +1,6 @@
 #include "cpu.h"
 #include "instructions/instructions.h"
 
-
 void adc(struct cpu *cpu, uint8_t *operand, uint8_t *) {
 	uint8_t acold = cpu->ac;
 	uint8_t carryin = cpu->sr & SR_C;
@@ -40,7 +39,7 @@ void adc(struct cpu *cpu, uint8_t *operand, uint8_t *) {
 
 	set_n_if_negative(cpu, cpu->ac);
 	set_z_if_zero(cpu, cpu->ac);
-	set_v_on_overflow(cpu, acold, *operand);
+	set_v_on_overflow(cpu, acold, *operand, carryin);
 }
 
 void cmp(struct cpu *cpu, uint8_t *operand, uint8_t *) {
@@ -110,6 +109,6 @@ void sbc(struct cpu *cpu, uint8_t *operand, uint8_t *) {
 		cpu->ac = dechigh << 4 | declow;
 		set_n_if_negative(cpu, cpu->ac);
 		set_z_if_zero(cpu, cpu->ac);
-		set_v_on_overflow(cpu, acold, not_operand);
+		set_v_on_overflow(cpu, acold, not_operand, carryin);
 	}
 }

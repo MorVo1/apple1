@@ -169,16 +169,16 @@ void set_n_if_negative(struct cpu *cpu, uint8_t value) {
 		cpu->sr &= ~SR_N;
 }
 
-void set_v_on_overflow(struct cpu *cpu, uint8_t a, uint8_t b) {
+void set_v_on_overflow(struct cpu *cpu, uint8_t a, uint8_t b, uint8_t carryin) {
 	if ((a & SIGN_BIT) == (b & SIGN_BIT)) {
 		if (a & SIGN_BIT) {
-			if ((a + b + (cpu->sr & SR_C ? 1 : 0)) & SIGN_BIT)
+			if ((a + b + (carryin ? 1 : 0)) & SIGN_BIT)
 				cpu->sr &= ~SR_V;
 			else
 				cpu->sr |= SR_V;
 		}
 		else {
-			if (!((a + b + (cpu->sr & SR_C ? 1 : 0)) & SIGN_BIT))
+			if (!((a + b + (carryin ? 1 : 0)) & SIGN_BIT))
 				cpu->sr &= ~SR_V;
 			else
 				cpu->sr |= SR_V;

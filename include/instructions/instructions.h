@@ -45,7 +45,7 @@ extern struct instruction instructions[INSTRUCTION_COUNT];
 
 void set_z_if_zero(struct cpu *, uint8_t);
 void set_n_if_negative(struct cpu *, uint8_t);
-void set_v_on_overflow(struct cpu *, uint8_t, uint8_t);
+void set_v_on_overflow(struct cpu *, uint8_t, uint8_t, uint8_t carryin);
 void push(struct cpu *, uint8_t, uint8_t *);
 void pull(struct cpu *, uint8_t *, uint8_t *);
 
