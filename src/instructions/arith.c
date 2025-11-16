@@ -93,18 +93,19 @@ void sbc(struct cpu *cpu, uint8_t *operand, uint8_t *) {
 		ophigh = *operand >> 4;
 		oplow = *operand & 0xF;
 
-		declow = aclow + ~oplow + carryin;
-		dechigh = achigh + ~ophigh;
+		declow = aclow - oplow - !carryin;
+		dechigh = achigh - ophigh;
+
 		if (declow < 0) {
-			// I'm not decrementing dechigh because of the natural behaviour of two's complement.
 			declow += 10;
+			dechigh--;
 		}
 		if (dechigh < 0) {
 			cpu->sr &= ~SR_C;
 			dechigh += 10;
 		}
 		else
-			cpu->sr &= ~SR_C;
+			cpu->sr |= SR_C;
 
 		cpu->ac = dechigh << 4 | declow;
 		set_n_if_negative(cpu, cpu->ac);
