@@ -13,11 +13,13 @@ int run(struct cpu *cpu, uint8_t *memory, bool tests) {
 	struct instruction instruction;
 	uint16_t operand;
 	FILE *logfile = nullptr;
+	uint16_t old_pc;
 
 	if (tests)
 		logfile = fopen("log.txt", "w");
 
 	for (;;) {
+		old_pc = cpu->pc;
 		instruction = instructions[memory[cpu->pc]];
 		if (!instruction.implementation) {
 			printf("Unimplemented instruction: %02x at %04x\n", memory[cpu->pc], cpu->pc);
@@ -90,6 +92,8 @@ int run(struct cpu *cpu, uint8_t *memory, bool tests) {
 				instruction.implementation(cpu, &memory[operand], memory);
 		}
 		cpu->pc++;
+		if (old_pc == cpu->pc && tests)
+			return 0;
 		refresh();
 	}
 }
