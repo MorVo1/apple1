@@ -1,4 +1,5 @@
 #include "cpu.h"
+#include "io.h"
 #include "instructions/instructions.h"
 
 void and(struct cpu *cpu, uint8_t *operand, uint8_t *) {
@@ -7,7 +8,8 @@ void and(struct cpu *cpu, uint8_t *operand, uint8_t *) {
 	set_z_if_zero(cpu, cpu->ac);
 }
 
-void bit(struct cpu *cpu, uint8_t *operand, uint8_t *) {
+void bit(struct cpu *cpu, uint8_t *operand, uint8_t *memory) {
+	handle_keyboard(operand, memory); 
 	uint8_t result = cpu->ac & *operand;
 	set_n_if_negative(cpu, *operand);
 	set_z_if_zero(cpu, result);
