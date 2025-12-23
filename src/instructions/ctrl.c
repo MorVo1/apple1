@@ -9,8 +9,9 @@ void brk(struct cpu *cpu, uint8_t *, uint8_t *memory) {
 	push(cpu, cpu->sr | SR_PHP_SET, memory);
 	cpu->sr |= SR_I;
 
+	cpu->pc = memory[0xFFFF] << 8 | memory[0xFFFE];
 	// I am subtracting 1 from it because it gets added later on in my main loop.
-	cpu->pc = memory[0xFFFE] + memory[0xFFFF] * 0x100 - 1;
+	cpu->pc -= 1;
 }
 
 void jmp(struct cpu *cpu, uint8_t *operand, uint8_t *memory) {
